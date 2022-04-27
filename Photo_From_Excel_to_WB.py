@@ -2,7 +2,7 @@ import xlrd
 import os
 import requests
 
-
+# TODO Проверить выгрузку на сайт
 os.chdir("D:\Dropbox\LeessonS\WB_Photo")
 workbook = xlrd.open_workbook("EXCEL_PICTURE.xls")
 worksheet = workbook.sheet_by_index(0)

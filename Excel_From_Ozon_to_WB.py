@@ -11,20 +11,37 @@ new_ws = new_wb.active
 
 # определяем заголовки в таблице для первой строки ( i = 1 )
 i = 1
+table_tytles = ['ID',
+               'Наименование',
+               'ЦенаМаркетПлейс',
+               'Тип',
+               'ШК_OZONE',
+               'Вес',
+               'Высота',
+               'Ширина',
+               'Глубина',
+               'URL_фото',
+               'Производитель',
+               'Модель',
+               'Тип_2']
+
 # TODO попробовать сделать в виде цикла со списком названий
-new_ws.cell(row = i, column = 1).value = "ID"
-new_ws.cell(row = i, column = 2).value = "Наименование"
-new_ws.cell(row = i, column = 3).value = "ЦенаМаркетПлейс"
-new_ws.cell(row = i, column = 4).value = "Тип"
-new_ws.cell(row = i, column = 5).value = "ШК_OZONE"
-new_ws.cell(row = i, column = 6).value = "Вес"
-new_ws.cell(row = i, column = 7).value = "Высота"
-new_ws.cell(row = i, column = 8).value = "Ширина"
-new_ws.cell(row = i, column = 9).value = "Глубина"
-new_ws.cell(row = i, column = 10).value = "URL_фото"
-new_ws.cell(row = i, column = 11).value = "Производитель"
-new_ws.cell(row = i, column = 12).value = "Модель"
-new_ws.cell(row = i, column = 13).value = "Тип_2"
+for tab_title in table_tytles:
+    for col_num in range (1, 13):
+        new_ws.cell(row = 1, column=col_num).value = tab_title
+# new_ws.cell(row = i, column = 1).value = "ID"
+# new_ws.cell(row = i, column = 2).value = "Наименование"
+# new_ws.cell(row = i, column = 3).value = "ЦенаМаркетПлейс"
+# new_ws.cell(row = i, column = 4).value = "Тип"
+# new_ws.cell(row = i, column = 5).value = "ШК_OZONE"
+# new_ws.cell(row = i, column = 6).value = "Вес"
+# new_ws.cell(row = i, column = 7).value = "Высота"
+# new_ws.cell(row = i, column = 8).value = "Ширина"
+# new_ws.cell(row = i, column = 9).value = "Глубина"
+# new_ws.cell(row = i, column = 10).value = "URL_фото"
+# new_ws.cell(row = i, column = 11).value = "Производитель"
+# new_ws.cell(row = i, column = 12).value = "Модель"
+# new_ws.cell(row = i, column = 13).value = "Тип_2"
 
 # присваиваем значение строчки для продолжения работы с 2-й строки
 i = 2

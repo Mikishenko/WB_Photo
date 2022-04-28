@@ -2,12 +2,16 @@ import openpyxl
 import os
 import requests
 
-from openpyxl import load_workbook
+# устанавливаем рабочий каталог
 # path = os.chdir("C:\\Users\\AlexMiki\\Desktop\\ПРОЕКТЫ\\Переезд OZON to WB\\OZON товары")
 path = os.chdir("D:\\Dropbox\\LeessonS\\WB_Photo\\OZONE")
+# инициализация Excel-файла и листа для записи
 new_wb = openpyxl.Workbook()
 new_ws = new_wb.active
+
+# определяем заголовки в таблице для первой строки ( i = 1 )
 i = 1
+# TODO попробовать сделать в виде цикла со списком названий
 new_ws.cell(row = i, column = 1).value = "ID"
 new_ws.cell(row = i, column = 2).value = "Наименование"
 new_ws.cell(row = i, column = 3).value = "ЦенаМаркетПлейс"
@@ -21,18 +25,25 @@ new_ws.cell(row = i, column = 10).value = "URL_фото"
 new_ws.cell(row = i, column = 11).value = "Производитель"
 new_ws.cell(row = i, column = 12).value = "Модель"
 new_ws.cell(row = i, column = 13).value = "Тип_2"
-i = 2
-file_count = 0
-for name_file in os.listdir(path):
-    file_count +=1
-    print (file_count, '\t', name_file)
 
+# присваиваем значение строчки для продолжения работы с 2-й строки
+i = 2
+# счётчик для оценки прогресса количества обработаных файлов
+file_count = 0
+# для каждого имени файла из папки запускаем цикл
+for name_file in os.listdir(path):
+    file_count +=1 #выводим на печать номер обрабатываемого файла
+    print (file_count, '\t', name_file) # выводим имя обрабатываемого файла
+# открываем книгу
     wb = openpyxl.open(name_file)
-    # получаем активный лист
+    # устанавливаем активный лист ( известный из строгой структуры файла)
     wb.active = 4
     ws = wb.active
-    # печатаем значение ячейки
+    # считываем список значений ячеек с листа, начиная с 4-й строки
+    # заголовки пропускаются
     for row in range (4, ws.max_row+1):
+        # выполняем проверку на "пустоту" ячейки
+        # если не пустая, то считывается значение переменной
         if ws[row][1].value :
             id_oscomp = ws[row][1].value
             name_product = ws[row][2].value
@@ -47,6 +58,8 @@ for name_file in os.listdir(path):
             brand = ws[row][19].value
             model = ws[row][20].value
             type_prod_v2 = ws[row][22].value
+            # полученные значения  записываются в столбцы текущей строки (i)
+            # у новой рабочей книги 'ws'
             new_ws.cell(row = i, column = 1).value = id_oscomp
             new_ws.cell(row = i, column = 2).value = name_product
             new_ws.cell(row = i, column = 3).value = price
@@ -60,11 +73,13 @@ for name_file in os.listdir(path):
             new_ws.cell(row = i, column = 11).value = brand
             new_ws.cell(row = i, column = 12).value = model
             new_ws.cell(row = i, column = 13).value = type_prod_v2
+        # если ячейка пустая - счётчик строки для создаваемого файла уменьшается
         else:
             i -= 1
-
+        # увеличиваем значение строки для записи на следующей строке листа
         i += 1
-
-
+# по окончании обработки всех файлов сохраняем изменения в созданном файле
 new_wb.save("to_WB.xlsx")
+# закрываем книгу для исключения ошибки совместного доступа
 new_wb.close()
+# конец выполнения программы

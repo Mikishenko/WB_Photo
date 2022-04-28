@@ -26,8 +26,8 @@ table_tytles = ['ID',
                'Тип_2']
 
 # TODO попробовать сделать в виде цикла со списком названий
-for tab_title in table_tytles:
-    for col_num in range (1, 13):
+for col_num in range (1, 13):
+    for tab_title in table_tytles:
         new_ws.cell(row = 1, column=col_num).value = tab_title
 # new_ws.cell(row = i, column = 1).value = "ID"
 # new_ws.cell(row = i, column = 2).value = "Наименование"

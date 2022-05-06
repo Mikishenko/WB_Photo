@@ -2,19 +2,18 @@ import xlrd
 import os
 import requests
 
-# TODO Проверить выгрузку на сайт
 os.chdir("F:\Dropbox\LeessonS\WB_Photo\RESIZE_for_WB_from_Excel")
-workbook = xlrd.open_workbook("url_from_OZON.xls")
+workbook = xlrd.open_workbook("url_from_OZON_2.xls")
 worksheet = workbook.sheet_by_index(0)
 chars = int(input("Введите количество строк в Excel-файле:"))-1
 for i in range(1, chars):
-    for j in range(0, 1):
+    for j in range(0, 2):
         num_file = 0
         if j == 0 :
-            folder_name = "F:\Dropbox\LeessonS\WB_Photo\RESIZE_for_WB_from_Excel"+"\\"+str(worksheet.cell_value(i, j)+"\\photo")
+            folder_name = "F:\Dropbox\LeessonS\WB_Photo\RESIZE_for_WB_from_Excel\Archive"+"\\"+str(worksheet.cell_value(i, j)+"\\photo")
             os.makedirs (folder_name)
             os.chdir(folder_name)
-            my_st = str(worksheet.cell_value(i, j + 1))
+            my_st = str(worksheet.cell_value(i, j + 1))+";"+str(worksheet.cell_value(i, j + 2)+";")
             list_urls = my_st.split(";")
             for x in list_urls:
                 if x != "":

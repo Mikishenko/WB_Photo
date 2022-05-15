@@ -8,7 +8,7 @@ import requests
 
 # устанавливаем рабочий каталог
 # path = os.chdir("C:\\Users\\AlexMiki\\Desktop\\ПРОЕКТЫ\\Переезд OZON to WB\\OZON товары")
-path = os.chdir("D:\\Dropbox\\LeessonS\\WB_Photo\\OZONE")
+path = os.chdir("F:\\Dropbox\\LeessonS\\WB_Photo\\OZONE")
 # инициализация Excel-файла и листа для записи
 new_wb = openpyxl.Workbook()
 new_ws = new_wb.active

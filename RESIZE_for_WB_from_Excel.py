@@ -10,15 +10,15 @@ for i in range(1, chars):
     for j in range(0, 2):
         num_file = 0
         if j == 0 :
-            folder_name = "F:\Dropbox\LeessonS\WB_Photo\RESIZE_for_WB_from_Excel\Archive"+"\\"+str(worksheet.cell_value(i, j)+"\\photo")
+            folder_name = "F:\Dropbox\LeessonS\WB_Photo\RESIZE_for_WB_from_Excel\Archive"+"\\"+str(int(worksheet.cell_value(i, j)))+"\\photo"
             os.makedirs (folder_name)
             os.chdir(folder_name)
             my_st = str(worksheet.cell_value(i, j + 1))+";"+str(worksheet.cell_value(i, j + 2)+";")
             list_urls = my_st.split(";")
             for x in list_urls:
                 if x != "":
-                    name_file = str(worksheet.cell_value(i, j)) + "_" + str(num_file) + ".jpg"
-                    print(name_file)
+                    name_file = str(int(worksheet.cell_value(i, j))) + "_" + str(num_file) + ".jpg"
+                    print("#", i, "\t из ",chars, "\t ",  name_file)
                     print(x)
                     url = str(x)
                     p = requests.get(url)

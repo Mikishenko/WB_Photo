@@ -1,7 +1,6 @@
 import openpyxl
 import os
 
-
 # устанавливаем рабочий каталог, где лежат файлы с OZON
 # path = os.chdir("C:\\Users\\AlexMiki\\Desktop\\ПРОЕКТЫ\\Переезд OZON to WB\\OZON товары")
 # path = os.chdir("F:\\Dropbox\\LeessonS\\WB_Photo\\OZONE")

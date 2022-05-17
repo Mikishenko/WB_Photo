@@ -8,15 +8,15 @@ path = os.chdir("D:\\Dropbox\\LeessonS\\1С\\")
 
 # РАБОТА С СОЗДАВАЕМЫМ ФАЙЛОМ
 # инициализация НОВОГО Excel-файла и листа для записи
-new_wb = openpyxl.Workbook()
-new_ws = new_wb.active
+# new_wb = openpyxl.Workbook()
+# new_ws = new_wb.active
 
 # перечисляем фиксированные имена полей будущей таблицы
 table_tytles = ('ID_1C','ID_site_OSCOMP','BAR_OZONE_in_1C','Наименование',
                 'Полное Наименование','BAR_OZON_in_OZONE')
 # записываем поля в файл
-for col_num in range (0, 5):
-    new_ws.cell(row = 1, column=col_num+1).value = table_tytles[col_num]
+# for col_num in range (0, 5):
+#     new_ws.cell(row = 1, column=col_num+1).value = table_tytles[col_num]
 #  переменная 'i' - используется в адресации строк (начнём со 2-й строки)
 i = 2
 # определение рабочих файлов
@@ -38,23 +38,23 @@ for row_OZONE in range (1, ws_OZONE.max_row+1):
     ozone_cat['bar_ozon'] = bar_ozone_in_ozone
 print(ozone_cat)
 
-for row_1C in range (1, ws_1C.max_row+1):
-    id_1C = ws_1C[row_1C][1].value
-    id_site_OSCOMP = ws_1C[row_1C][2].value
-    BAR_OZONE_in_1C = ws_1C[row_1C][3].value
-    name = ws_1C[row_1C][4].value
-    full_name = ws_1C[row_1C][5].value
-    # полученные значения  записываются в столбцы текущей строки (i)
-    # у новой рабочей книги 'ws'
-    new_ws.cell(row=i, column=1).value = id_1C
-    new_ws.cell(row=i, column=2).value = id_site_OSCOMP
-    new_ws.cell(row=i, column=3).value = BAR_OZONE_in_1C
-    new_ws.cell(row=i, column=4).value = name
-    new_ws.cell(row=i, column=5).value = full_name
-    # увеличиваем значение строки для записи на следующей строке листа
-    i += 1
-# по окончании обработки всех файлов сохраняем изменения в созданном файле
-new_wb.save("Analisys_1C_and_OZON.xlsx")
-# закрываем книгу для исключения ошибки совместного доступа
-new_wb.close()
-# конец выполнения программы
+# for row_1C in range (1, ws_1C.max_row+1):
+#     id_1C = ws_1C[row_1C][1].value
+#     id_site_OSCOMP = ws_1C[row_1C][2].value
+#     BAR_OZONE_in_1C = ws_1C[row_1C][3].value
+#     name = ws_1C[row_1C][4].value
+#     full_name = ws_1C[row_1C][5].value
+#     # полученные значения  записываются в столбцы текущей строки (i)
+#     # у новой рабочей книги 'ws'
+#     new_ws.cell(row=i, column=1).value = id_1C
+#     new_ws.cell(row=i, column=2).value = id_site_OSCOMP
+#     new_ws.cell(row=i, column=3).value = BAR_OZONE_in_1C
+#     new_ws.cell(row=i, column=4).value = name
+#     new_ws.cell(row=i, column=5).value = full_name
+#     # увеличиваем значение строки для записи на следующей строке листа
+#     i += 1
+# # по окончании обработки всех файлов сохраняем изменения в созданном файле
+# new_wb.save("Analisys_1C_and_OZON.xlsx")
+# # закрываем книгу для исключения ошибки совместного доступа
+# new_wb.close()
+# # конец выполнения программы

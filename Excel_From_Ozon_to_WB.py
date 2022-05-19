@@ -8,7 +8,7 @@ import os
 # устанавливаем рабочий каталог, где лежат файлы с OZON
 # path = os.chdir("C:\\Users\\AlexMiki\\Desktop\\ПРОЕКТЫ\\Переезд OZON to WB\\OZON товары")
 # path = os.chdir("F:\\Dropbox\\LeessonS\\WB_Photo\\OZONE")
-path = os.chdir("D:\\Dropbox\\LeessonS\\analysis")
+path = os.chdir("C:\\Users\\BRAGA\\Desktop\\unit_ARCHIVE")
 
 # РАБОТА С СОЗДАВАЕМЫМ ФАЙЛОМ
 # инициализация НОВОГО Excel-файла и листа для записи
@@ -76,7 +76,7 @@ for name_file in os.listdir(path):
         # увеличиваем значение строки для записи на следующей строке листа
         i += 1
 # по окончании обработки всех файлов сохраняем изменения в созданном файле
-new_wb.save("ALL_catalog_from_OZON_in_one_file.xlsx")
+new_wb.save("ARCHIVE_from_OZON_in_one_file.xlsx")
 # закрываем книгу для исключения ошибки совместного доступа
 new_wb.close()
 # конец выполнения программы
